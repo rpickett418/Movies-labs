@@ -26,9 +26,9 @@ inputField.value = ""
 }
 
 function deleteMovie(event){
-event.target.parentNode.remove()
-message.textContent = "Movie Deleted"
-
+    event.target.parentNode.remove()
+    message.textContent = "Movie Deleted"
+    revealMessage()
 }
 
 function crossOffMovie(event){
@@ -39,5 +39,12 @@ if(event.target.classList.contains('checked') === true){
     message.textContent = "Movie Added"
 }
 }
+function revealMessage(){
+    message.classList.remove("hide")
+    setTimeout(function(){
+        message.classList.add("hide")  
+    },500);
+}
+
 
 document.querySelector('form').addEventListener("submit", addMovie)
